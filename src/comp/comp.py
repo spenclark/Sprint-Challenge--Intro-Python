@@ -41,7 +41,7 @@ print(b)
 # whose name starts with any letter between 'C' and 'G' inclusive.
 items = ('C', 'D', 'E', 'F', 'G')
 print("Starts between C and G, inclusive:")
-c = [each for each in humans if each.name.startswith(items)]
+c = [each.name for each in humans if each.name.startswith(items)]
 print(c)
 
 # Write a list comprehension that creates a list of all the ages plus 10.
@@ -59,7 +59,7 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [f"{each.name}, {each.age}" for each in humans if each.age >=
+f = [(each.name, each.age) for each in humans if each.age >=
      27 and each.age <= 32]
 print(f)
 
@@ -67,10 +67,10 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [each.name.upper() for each in humans]
+g = [Human(each.name.upper(), each.age + 5)for each in humans]
 print(g)
 
 # Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-h = [each.age ** 2 for each in humans]
+h = [math.sqrt(each.age) for each in humans]
 print(h)
